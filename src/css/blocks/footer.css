@@ -1,0 +1,28 @@
+.footer {
+  padding: 20px 10px;
+  background-color: #0F1322;
+}
+
+.footer__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footer span {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+@media (max-width: 460px) {
+  .footer span {
+    font-size: 12px;
+  }
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}

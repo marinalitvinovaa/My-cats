@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Cats</title>
+  <link rel="stylesheet" href="src/css/index.css">
+  <script src="https://cdn.jsdelivr.net/npm/js-cookie@3.0.1/dist/js.cookie.min.js" defer></script>
+</head>
+
+<body class="page">
+
+  <header class="header">
+    <div class="container header__container">
+      <a href="#" class="header__logo">Cats</a>
+      <div class="buttons">
+        <button class="btn" id="add"><img src="src/images/plus.svg" alt="">Добавить кота</button>
+        <button class="btn_login" id="login">Войти</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main container">
+    <section class="cards">
+      <h2 class="visually-hidden">Милые котики</h2>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer__container">
+      <span class="copyright">© Проект выполнила Литвинова Марина</span>
+      <nav class="socials">
+        <a class="socials__link" href="#"><img src="src/images/Telegram.svg" alt="Телеграм"></a>
+        <a class="socials__link" href="#"><img src="src/images/Behance.svg" alt="Behance"></a>
+        <a class="socials__link" href="#"><img src="src/images/GitHub.svg" alt="Github"></a>
+      </nav>
+    </div>
+  </footer>
+
+  <!-- Попап: -->
+<div class="popup popup-add-cats">
+  <div class="popup__container">
+    <div class="popup__header">
+      <button class="popup__close btn"><img src="src/images/close.svg" alt="Закрыть"></button>
+      <h2>Добавить питомца</h2>
+    </div>
+    <form class="form" id="popup-form-cat">
+      <div class="form__image"></div>
+      <input type="number" class="form__input" name="id" min="1" required placeholder="id">
+      <input type="number" class="form__input" name="age" placeholder="Возраст">
+      <input type="text" class="form__input" name="name" required placeholder="Имя">
+      <input type="number" class="form__input" name="rate" placeholder="Рейтинг (0-10)" min="0" max="10">
+      <textarea name="description" class="form__input form__textarea" placeholder="Описание"></textarea>
+      <label class="form__checkbox-wrap">
+        <input type="checkbox" name="favourite" class="form__checkbox " placeholder="">
+        <span class="form__label">Любимчик</span>
+        <span class="form__fake-checkbox"><img src="src/images/check.svg" alt="" srcset=""></span>
+      </label>
+      <input type="url" class="form__input form__input-image" name="img_link" placeholder="Ссылка на фото">
+      <button type="submit" class="form__btn btn">Добавить котика</button>
+    </form>
+  </div>
+</div>
+
+<!-- Попап: -->
+<div class="popup popup-login">
+  <div class="popup__container">
+      <button class="popup__close btn"><img src="src/images/close.svg" alt="Закрыть"></button>
+      <h2>Авторизация</h2>
+    <form class="form" id="popup-form-login">
+      <input type="email" class="form__input" name="email" required placeholder="email">
+      <input type="password" class="form__input" name="password" placeholder="password">
+      <button type="submit" class="form__btn btn" id="login">Войти</button>
+    </form>
+  </div>
+</div>
+
+<template id="card-template">
+  <div class="card">
+    <img src="/src/images/favorite.svg" aria-label="Поставить лайк" class="card__like">
+    <div class="card__info">
+      <img src="src/images/cat.png" alt="Изображние" class="card__photo">
+      <a href="#" class="card_link">
+        <h3 class="card__title">Васька</h3>
+      </a>
+      <!-- <div class="rate">
+        <p class="rate__text">Рейтинг:</p>
+        <img src="src/images/Star.svg" alt="" class="rate__icons">
+        <img src="src/images/Star.svg" alt="" class="rate__icons">
+        <img src="src/images/Star.svg" alt="" class="rate__icons">
+        <img src="src/images/Star.svg" alt="" class="rate__icons">
+        <img src="src/images/Star.svg" alt="" class="rate__icons">
+      </div> -->
+    </div>
+  </div>
+</template>
+
+
+  <script src="src/scripts/cats.js" defer></script>
+  <script src="src/scripts/api.js" defer></script>
+  <script src="src/scripts/card.js" defer></script>
+  <script src="src/scripts/popup.js" defer></script>
+  <script src="src/scripts/index.js" defer></script>
+
+
+
+  <template id="card-template">
+    <!-- сюда вставить карточку -->
+  </template>
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+.form {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.form__image {
+  grid-row: span 3;
+  background-image: url("https://krasivosti.pro/uploads/posts/2021-04/thumbs/1617966908_11-p-persikovii-kotenok-11.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.form__textarea {
+  grid-row: span 2;
+  resize: none;
+  height: 100%;
+}
+
+.form__btn {
+  font-size: 14px;
+  width: 100%;
+}
+
+.form__input {
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid rgba(25, 20, 20, 0.8);
+  border-radius: 4px;
+  padding: 8px 8px;
+}
+
+.form__input:focus {
+  border: 1px solid #f47e6b;
+}
+
+.form__fake-checkbox img{
+  width: 18px;
+}
+
+.form__checkbox-wrap {
+  display: flex;
+  align-items: center;
+  position: relative;
+  gap: 10px;
+}
+
+.form__checkbox {
+  /* скрывает стандартное отображение */
+  appearance: none;
+  position: absolute;
+}
+
+.form__checkbox:focus~.form__fake-checkbox,
+.form__checkbox:focus~.form__label {
+  color: #FE6751;
+}
+
+.form__checkbox:checked~.form__fake-checkbox,
+.form__checkbox:checked~.form__label {
+  color: #f47e6b;
+}
+
+.form__checkbox:checked:focus~.form__fake-checkbox,
+.form__checkbox:checked:focus~.form__label {
+  opacity: 0.6;
+}
+
+.form button {
+  background-color: #FE6751;
+  border-radius: 15px;
+  font-size: 14px;
+}

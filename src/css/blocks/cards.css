@@ -1,0 +1,11 @@
+.cards {
+  display: grid;
+    /* автоматическое определение колонок */
+    grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+    gap: 30px 20px;
+    align-content: flex-start;
+}
+
+.card h2[name=''] {
+  display: none;
+}

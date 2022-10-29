@@ -1,0 +1,15 @@
+@import url(https://fonts.googleapis.com/css?family=Inter:regular,500,600,700,800);
+@import url('blocks/container.css');
+@import url('blocks/footer.css');
+@import url('blocks/form.css');
+@import url('blocks/header.css');
+@import url('blocks/logo.css');
+@import url('blocks/main.css');
+@import url('blocks/page.css');
+@import url('blocks/popup.css');
+@import url('setup/base.css');
+@import url('setup/color-var.css');
+@import url('blocks/logo.css');
+@import url('blocks/btn.css');
+@import url('blocks/card.css');
+@import url('blocks/cards.css');
