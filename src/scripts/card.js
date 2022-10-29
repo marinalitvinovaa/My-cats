@@ -19,8 +19,14 @@ class Card {
       cardLike.remove()
     }
 
-    if (!this._data.name) {
-      this.element.remove()
+   console.log(this._data);
+
+    if (typeof this._data.id === 'undefined') {
+        let test = this._data;
+      test.name = 'Локи';
+      test.id = 123;
+      test.img_link = 'https://ferma-biz.ru/wp-content/uploads/2022/08/1476173418-111-2.jpg'
+        console.log(test);
     }
 
 

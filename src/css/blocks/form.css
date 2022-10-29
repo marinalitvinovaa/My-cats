@@ -71,4 +71,12 @@
   background-color: #FE6751;
   border-radius: 15px;
   font-size: 14px;
+  padding: 10px 10px;
+}
+
+@media (max-width: 480px) {
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
 }
