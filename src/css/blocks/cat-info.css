@@ -21,7 +21,7 @@
 }
 
 .cat-info___about {
-  width: 370px;
+  max-width: 370px;
   position: relative;
 }
 
@@ -124,4 +124,24 @@
     margin-top: 0;
     text-align: center;
   }
+}
+
+@media (max-width: 420px) {
+  .cat-info {
+    width: 250px;
+  }
+
+  .cat-info__actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+.cat-info__number {
+    margin: 0;
+    margin-bottom: 5px;
+  }
+
+.cat-info__header {
+  margin-bottom: 5px;
+}
 }
