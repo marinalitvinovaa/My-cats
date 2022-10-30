@@ -32,118 +32,128 @@
     <div class="container footer__container">
       <span class="copyright">© Проект выполнила Литвинова Марина</span>
       <nav class="socials">
-        <a class="socials__link" href="https://t.me/marina_litvinovaa" target="_blank"><img src="src/images/Telegram.svg" alt="Телеграм"></a>
-        <a class="socials__link" href="https://www.behance.net/marina_webdesign" target="_blank"><img src="src/images/Behance.svg" alt="Behance"></a>
-        <a class="socials__link" href="https://github.com/marinalitvinovaa" target="_blank"><img src="src/images/GitHub.svg" alt="Github"></a>
+        <a class="socials__link" href="https://t.me/marina_litvinovaa" target="_blank"><img
+            src="src/images/Telegram.svg" alt="Телеграм"></a>
+        <a class="socials__link" href="https://www.behance.net/marina_webdesign" target="_blank"><img
+            src="src/images/Behance.svg" alt="Behance"></a>
+        <a class="socials__link" href="https://github.com/marinalitvinovaa" target="_blank"><img
+            src="src/images/GitHub.svg" alt="Github"></a>
       </nav>
     </div>
   </footer>
 
   <!-- Попап: -->
-<div class="popup popup-add-cats">
-  <div class="popup__container">
-    <div class="popup__header">
-      <button class="popup__close btn"><img src="src/images/close.svg" alt="Закрыть"></button>
-      <h2>Добавить питомца</h2>
+  <div class="popup popup-add-cats">
+    <div class="popup__container">
+      <div class="popup__header">
+        <button class="popup__close btn"><img src="src/images/close.svg" alt="Закрыть"></button>
+        <h2>Добавить питомца</h2>
+      </div>
+      <form class="form" id="popup-form-cat">
+        <div class="form__image"></div>
+        <input type="number" class="form__input" name="id" min="1" required placeholder="id">
+        <input type="number" class="form__input" name="age" placeholder="Возраст">
+        <input type="text" class="form__input" name="name" required placeholder="Имя">
+        <input type="number" class="form__input" name="rate" placeholder="Рейтинг (0-10)" min="0" max="10">
+        <textarea name="description" class="form__input form__textarea" placeholder="Описание"></textarea>
+        <label class="form__checkbox-wrap">
+          <input type="checkbox" name="favourite" class="form__checkbox " placeholder="">
+          <span class="form__label">Любимчик</span>
+          <span class="form__fake-checkbox"><img src="src/images/check.svg" alt="" srcset=""></span>
+        </label>
+        <input type="url" class="form__input form__input-image" name="img_link" placeholder="Ссылка на фото">
+        <button type="submit" class="form__btn btn">Добавить котика</button>
+      </form>
     </div>
-    <form class="form" id="popup-form-cat">
-      <div class="form__image"></div>
-      <input type="number" class="form__input" name="id" min="1" required placeholder="id">
-      <input type="number" class="form__input" name="age" placeholder="Возраст">
-      <input type="text" class="form__input" name="name" required placeholder="Имя">
-      <input type="number" class="form__input" name="rate" placeholder="Рейтинг (0-10)" min="0" max="10">
-      <textarea name="description" class="form__input form__textarea" placeholder="Описание"></textarea>
-      <label class="form__checkbox-wrap">
-        <input type="checkbox" name="favourite" class="form__checkbox " placeholder="">
-        <span class="form__label">Любимчик</span>
-        <span class="form__fake-checkbox"><img src="src/images/check.svg" alt="" srcset=""></span>
-      </label>
-      <input type="url" class="form__input form__input-image" name="img_link" placeholder="Ссылка на фото">
-      <button type="submit" class="form__btn btn">Добавить котика</button>
-    </form>
   </div>
-</div>
 
-<!-- Попап карточки кота -->
-<div class="popup popup-cat-info">
-  <div class="popup__container">
-    <button class="popup__close btn"><img src="src/images/close.svg" alt="Закрыть"></button>
-    <div class="popup__content"></div>
+  <!-- Попап карточки кота -->
+  <div class="popup popup-cat-info">
+    <div class="popup__container">
+      <button class="popup__close btn"><img src="src/images/close.svg" alt="Закрыть"></button>
+      <div class="popup__content"></div>
+    </div>
   </div>
-</div>
 
-<div class="popup popup-image">
-  <div class="popup__container">
-    <button class="popup__close btn"><img src="src/images/close.svg" alt="Закрыть"></button>
-    <img class="popup__image" src="#" alt="Фото кота">
+  <div class="popup popup-image">
+    <div class="popup__container">
+      <button class="popup__close btn"><img src="src/images/close.svg" alt="Закрыть"></button>
+      <img class="popup__image" src="#" alt="Фото кота">
+    </div>
   </div>
-</div>
 
-<!-- Попап авторизации: -->
-<div class="popup popup-login">
-  <div class="popup__container">
+  <!-- Попап авторизации: -->
+  <div class="popup popup-login">
+    <div class="popup__container">
       <button class="popup__close btn"><img src="src/images/close.svg" alt="Закрыть"></button>
       <h2>Авторизация</h2>
-    <form class="form" id="popup-form-login">
-      <input type="email" class="form__input" name="email" required placeholder="email">
-      <input type="password" class="form__input" name="password" placeholder="password">
-      <button type="submit" class="form__btn btn" id="login">Войти</button>
-    </form>
-  </div>
-</div>
-
-
-
-<template id="card-template">
-  <div class="card">
-    <img src="src/images/favorite.svg" aria-label="Поставить лайк" class="card__like">
-    <div class="card__info">
-      <img src="src/images/cat.png" alt="Изображние" class="card__photo">
-      <a href="#" class="card_link">
-        <h3 class="card__title">Васька</h3>
-      </a>
-
+      <form class="form" id="popup-form-login">
+        <input type="email" class="form__input" name="email" required placeholder="email">
+        <input type="password" class="form__input" name="password" placeholder="password">
+        <button type="submit" class="form__btn btn" id="login">Войти</button>
+      </form>
     </div>
   </div>
-</template>
 
-<template id="cats-info-template">
-  <div class="cat-info">
-    <div class="cat-info__img">
-      <img src="https://ferma-biz.ru/wp-content/uploads/2022/08/1476173418-111-2.jpg" alt="" class="cat-info__photo">
-      <div class="cat-info__actions">
-        <button class="cat-info__edited"><img src="src/images/edit.svg" alt="" srcset="">Редактировать</button>
-        <button class="cat-info__saved cat-info__saved_hidden"><img src="src/images/save.svg" alt="" srcset="">Сохранить</button>
-        <button class="cat-info__deleted"><img src="src/images/delete.svg" alt="" srcset="">Удалить</button>
-      </div>
-  
-    </div>
-    
-    <div class="cat-info___about">
-      <img src="src/images/favorite.svg" aria-label="Поставить лайк" class="card__like"><h3 class="cat-info__header">Вася</h3>
-      <p class="cat-info__number">Порядковый номер: <span>1</span></p>
-      <div class="cat-info__age">
-        <span class="cat-info__age-text">Возраст:</span>
-        <span class="cat-info__age-val">3</span>
-      </div>
-      <p class="cat-info__text">Вася обладатель красивой и мягкой шубкой персикового окраса. Характер такой же мягкий, он очень добрый, спокойный и
-      рассудительный котик. Он очень любит общество человека и с удовольствием подставляет роскошную гриву для расчесывания.</p>
-      <div class="cat-info__rate rate">
-        <p class="rate__text">Рейтинг:</p>
-        <img src="src/images/Star.svg" alt="" class="rate__icons">
-        <img src="src/images/Star.svg" alt="" class="rate__icons">
-        <img src="src/images/Star.svg" alt="" class="rate__icons">
-        <img src="src/images/Star.svg" alt="" class="rate__icons">
-        <img src="src/images/star_half.svg" alt="" class="rate__icons">
-        <img src="src/images/Star.svg" alt="" class="rate__icons">
-        <img src="src/images/Star.svg" alt="" class="rate__icons">
-        <img src="src/images/Star.svg" alt="" class="rate__icons">
-        <img src="src/images/Star.svg" alt="" class="rate__icons">
-        <img src="src/images/Star.svg" alt="" class="rate__icons">
+
+
+  <template id="card-template">
+    <div class="card">
+      <img src="src/images/favorite.svg" aria-label="Поставить лайк" class="card__like">
+      <div class="card__info">
+        <img src="src/images/cat.png" alt="Изображние" class="card__photo">
+        <a href="#" class="card_link">
+          <h3 class="card__title">Васька</h3>
+        </a>
+
       </div>
     </div>
-  </div>
-</template>
+  </template>
+
+  <template id="cats-info-template">
+    <div class="cat-info">
+      <div class="cat-info__img">
+        <img src="https://ferma-biz.ru/wp-content/uploads/2022/08/1476173418-111-2.jpg" alt="" class="cat-info__photo">
+        <div class="cat-info__actions">
+          <button class="cat-info__edited"><img src="src/images/edit.svg" alt="" srcset="">Редактировать</button>
+          <button class="cat-info__saved cat-info__saved_hidden"><img src="src/images/save.svg" alt=""
+              srcset="">Сохранить</button>
+          <button class="cat-info__deleted"><img src="src/images/delete.svg" alt="" srcset="">Удалить</button>
+        </div>
+
+      </div>
+
+      <div class="cat-info___about">
+        <div class="cat-info__wrapper">
+          <img src="src/images/favorite.svg" aria-label="Поставить лайк" class="card__like">
+          <h3 class="cat-info__header">Вася</h3>
+
+        </div>
+        <p class="cat-info__number">Порядковый номер: <span>1</span></p>
+        <div class="cat-info__age">
+          <span class="cat-info__age-text">Возраст:</span>
+          <span class="cat-info__age-val">3</span>
+        </div>
+        <p class="cat-info__text">Вася обладатель красивой и мягкой шубкой персикового окраса. Характер такой же мягкий,
+          он очень добрый, спокойный и
+          рассудительный котик. Он очень любит общество человека и с удовольствием подставляет роскошную гриву для
+          расчесывания.</p>
+        <div class="cat-info__rate rate">
+          <p class="rate__text">Рейтинг:</p>
+          <img src="src/images/Star.svg" alt="" class="rate__icons">
+          <img src="src/images/Star.svg" alt="" class="rate__icons">
+          <img src="src/images/Star.svg" alt="" class="rate__icons">
+          <img src="src/images/Star.svg" alt="" class="rate__icons">
+          <img src="src/images/star_half.svg" alt="" class="rate__icons">
+          <img src="src/images/Star.svg" alt="" class="rate__icons">
+          <img src="src/images/Star.svg" alt="" class="rate__icons">
+          <img src="src/images/Star.svg" alt="" class="rate__icons">
+          <img src="src/images/Star.svg" alt="" class="rate__icons">
+          <img src="src/images/Star.svg" alt="" class="rate__icons">
+        </div>
+      </div>
+    </div>
+  </template>
 
   <script src="src/scripts/cats.js" defer></script>
   <script src="src/scripts/api.js" defer></script>

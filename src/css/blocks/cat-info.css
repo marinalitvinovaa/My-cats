@@ -114,7 +114,15 @@
   display: none;
 }
 
+.cat-info__wrapper {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
 
+.cat-info__wrapper .card__like {
+  margin-top: 15px;
+}
 
 
 @media (max-width: 620px) {
@@ -144,6 +152,9 @@
     margin-top: 0;
     text-align: center;
   }
+    .cat-info__wrapper .card__like {
+      margin-top: 10px;
+    }
 }
 
 @media (max-width: 420px) {
