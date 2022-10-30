@@ -9,3 +9,8 @@
   align-items: center;
 }
 
+@media (max-width: 340px) {
+  .header .btn span {
+    display: none;
+  }
+}

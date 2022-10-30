@@ -6,6 +6,8 @@
     align-content: flex-start;
 }
 
-.card h2[name=''] {
-  display: none;
+@media (max-width: 460px) {
+  .cards {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
 }

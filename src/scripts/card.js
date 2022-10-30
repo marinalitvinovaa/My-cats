@@ -1,7 +1,10 @@
 class Card {
-  constructor(dataCat, selectorTemplate) {
+  constructor(dataCat, selectorTemplate, handleCatTitle, handleCatImage) {
     this._data = dataCat;
+    this._handleCatTitle = handleCatTitle;
+    this._handleCatImage = handleCatImage;
     this._selectorTemplate = selectorTemplate;
+    
   }
 
   _getTemplate(){
@@ -10,16 +13,14 @@ class Card {
 
   getElement(){
     this.element = this._getTemplate().cloneNode(true);
-    const cardTitle = this.element.querySelector('.card__title');
-    const cardImage = this.element.querySelector('.card__photo');
-    const cardLike = this.element.querySelector('.card__like');
-    //const cardRate = this.element.querySelector('.rate');
+    this.cardTitle = this.element.querySelector('.card__title');
+    this.cardImage = this.element.querySelector('.card__photo');
+    this.cardLike = this.element.querySelector('.card__like');
+    const cardRate = this.element.querySelector('.rate');
 
     if (!this._data.favourite) {
-      cardLike.remove()
+      this.cardLike.remove()
     }
-
-   console.log(this._data);
 
     if (typeof this._data.id === 'undefined') {
         let test = this._data;
@@ -31,12 +32,34 @@ class Card {
 
 
 
+    this.cardTitle.textContent = this._data.name;
+    this.cardImage.src = this._data.img_link || `${'https://coolsen.ru/wp-content/uploads/2021/10/141-20211027_200131.jpg'}`;
 
-    cardTitle.textContent = this._data.name;
-    cardImage.src = this._data.img_link || `${'https://coolsen.ru/wp-content/uploads/2021/10/141-20211027_200131.jpg'}`;
-    
 
+    this.setEventListener();
     return this.element
+  }
+
+  getData() {
+    return this._data;
+  }
+
+  getId(){
+    return this._data._id;
+  }
+
+  setData(newData) {
+    this._data = newData;
+  }
+
+  deleteView(){
+    this.element.remove();
+    this.element = null;
+  }
+
+  setEventListener() {
+    this.cardTitle.addEventListener('click', () => this._handleCatTitle(this))
+    this.cardImage.addEventListener('click', () => this._handleCatImage(this._data))
   }
 }
 

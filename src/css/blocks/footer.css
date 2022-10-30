@@ -26,3 +26,11 @@
   align-items: center;
   gap: 15px;
 }
+
+@media (max-width: 420px) {
+  .footer__container {
+    flex-direction: column;
+    gap: 15px;
+    padding: 5px 0;
+  }
+}

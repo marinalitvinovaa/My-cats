@@ -10,6 +10,18 @@ popupAddCat.setEventListener();
 const popupLogin = new Popup('popup-login');
 popupLogin.setEventListener();
 
+const popupCatInfo = new Popup('popup-cat-info');
+popupCatInfo.setEventListener();
+
+const popupImage = new PopupImage('popup-image');
+popupImage.setEventListener();
+
+const catsInfoInstance = new CatsInfo(
+  '#cats-info-template',
+)
+
+const catsInfoElement = catsInfoInstance.getElement()
+
 function serializeForm(elements){
   const formData = {};
 
@@ -28,7 +40,7 @@ function serializeForm(elements){
 }
 
 function createCat(dataCat) {
-  const cardInstance = new Card(dataCat, '#card-template');
+  const cardInstance = new Card(dataCat, '#card-template', handleCatTitle, handleCatImage);
   const newCardElement = cardInstance.getElement();
   cardsContainer.append(newCardElement);
 }
@@ -57,8 +69,6 @@ function handleFormLogin(e) {
   btnOpenPopupForm.classList.remove('visually-hidden')
   popupLogin.close();
 }
-
-
 
 
 function setDataRefresh(minutes){
@@ -113,7 +123,17 @@ function updateLocalStorage(data, action) {
 
 checkLocalStorage()
 
+function handleCatTitle(cardInstance) {
+  catsInfoInstance.setData(cardInstance)
+  popupCatInfo.setContent(catsInfoElement)
+  popupCatInfo.open()
+}
 
+function handleCatImage(dataCard) {
+  popupImage.open(dataCard)
+}
+
+// function handleCatDelete(cardInstance)
 
 btnOpenPopupForm.addEventListener('click', () => popupAddCat.open());
 btnOpenPopupLogin.addEventListener('click', () => popupLogin.open());

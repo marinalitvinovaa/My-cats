@@ -16,7 +16,7 @@
     <div class="container header__container">
       <a href="#" class="header__logo">Cats</a>
       <div class="buttons">
-        <button class="btn" id="add"><img src="src/images/plus.svg" alt="">Добавить кота</button>
+        <button class="btn" id="add"><img src="src/images/plus.svg" alt=""><span>Добавить кота</span></button>
         <button class="btn_login" id="login">Войти</button>
       </div>
     </div>
@@ -64,6 +64,21 @@
   </div>
 </div>
 
+<!-- Попап карточки кота -->
+<div class="popup popup-cat-info">
+  <div class="popup__container">
+    <button class="popup__close btn"><img src="src/images/close.svg" alt="Закрыть"></button>
+    <div class="popup__content"></div>
+  </div>
+</div>
+
+<div class="popup popup-image">
+  <div class="popup__container">
+    <button class="popup__close btn"><img src="src/images/close.svg" alt="Закрыть"></button>
+    <img class="popup__image" src="#" alt="Фото кота">
+  </div>
+</div>
+
 <!-- Попап: -->
 <div class="popup popup-login">
   <div class="popup__container">
@@ -77,6 +92,8 @@
   </div>
 </div>
 
+
+
 <template id="card-template">
   <div class="card">
     <img src="src/images/favorite.svg" aria-label="Поставить лайк" class="card__like">
@@ -85,31 +102,57 @@
       <a href="#" class="card_link">
         <h3 class="card__title">Васька</h3>
       </a>
-      <!-- <div class="rate">
+
+    </div>
+  </div>
+</template>
+
+<template id="cats-info-template">
+  <div class="cat-info">
+    <div class="cat-info__img">
+      <img src="https://ferma-biz.ru/wp-content/uploads/2022/08/1476173418-111-2.jpg" alt="" class="cat-info__photo">
+      <div class="cat-info__actions">
+        <button class="cat-info__edited"><img src="src/images/edit.svg" alt="" srcset="">Редактировать</button>
+        <button class="cat-info__saved cat-info__saved_hidden"><img src="src/images/save.svg" alt="" srcset="">Сохранить</button>
+        <button class="cat-info__deleted"><img src="src/images/delete.svg" alt="" srcset="">Удалить</button>
+      </div>
+  
+    </div>
+    
+    <div class="cat-info___about">
+      <h3 class="cat-info__header">Вася<img src="src/images/favorite.svg" aria-label="Поставить лайк" class="card__like"></h3>
+      <p class="cat-info__number">Порядковый номер: <span>1</span></p>
+      <div class="cat-info__age">
+        <span class="cat-info__age-text">Возраст:</span>
+        <span class="cat-info__age-val">3</span>
+      </div>
+      <p class="cat-info__text">Вася обладатель красивой и мягкой шубкой персикового окраса. Характер такой же мягкий, он очень добрый, спокойный и
+      рассудительный котик. Он очень любит общество человека и с удовольствием подставляет роскошную гриву для расчесывания.</p>
+      <div class="cat-info__rate rate">
         <p class="rate__text">Рейтинг:</p>
         <img src="src/images/Star.svg" alt="" class="rate__icons">
         <img src="src/images/Star.svg" alt="" class="rate__icons">
         <img src="src/images/Star.svg" alt="" class="rate__icons">
         <img src="src/images/Star.svg" alt="" class="rate__icons">
+        <img src="src/images/star_half.svg" alt="" class="rate__icons">
         <img src="src/images/Star.svg" alt="" class="rate__icons">
-      </div> -->
+        <img src="src/images/Star.svg" alt="" class="rate__icons">
+        <img src="src/images/Star.svg" alt="" class="rate__icons">
+        <img src="src/images/Star.svg" alt="" class="rate__icons">
+        <img src="src/images/Star.svg" alt="" class="rate__icons">
+      </div>
     </div>
   </div>
 </template>
-
 
   <script src="src/scripts/cats.js" defer></script>
   <script src="src/scripts/api.js" defer></script>
   <script src="src/scripts/card.js" defer></script>
   <script src="src/scripts/popup.js" defer></script>
+  <script src="src/scripts/cats-info.js" defer></script>
+  <script src="src/scripts/popup-image.js" defer></script>
+  <script src="src/scripts/rate.js" defer></script>
   <script src="src/scripts/index.js" defer></script>
-
-
-
-  <template id="card-template">
-    <!-- сюда вставить карточку -->
-  </template>
-
 </body>
 
 </html>
