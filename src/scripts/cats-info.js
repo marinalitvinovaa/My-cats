@@ -2,17 +2,23 @@ class CatsInfo{
   constructor(
     selectorTemplate, 
     handleEditCatInfo, 
-    // handleLikeCat, 
+    handleLikeCat, 
     handleDeleteCat) {
     this._selectorTemplate = selectorTemplate;
     this._handleEditCatInfo = handleEditCatInfo;
-    // this._handleLikeCat = handleLikeCat;
+    this._handleLikeCat = handleLikeCat;
     this._handleDeleteCat = handleDeleteCat;
     this._data = {};
   }
 
 
-
+  _updateViewLike(){
+    if (this._data.favourite) {
+      this.buttonLiked.classList.add('card__like-active')
+    } else {
+      this.buttonLiked.classList.remove('card__like-active')
+    }
+  }
 
   setData(cardInstance) {
     this._cardInstance = cardInstance;
@@ -24,11 +30,20 @@ class CatsInfo{
     this.catAge.textContent = this._data.age || 'Неопереден';
     this.catId.textContent = `Порядковый номер: ${this._data.id}`
 
+    
+
 
     this.catRate.innerHTML = generateRate(this._data.rate)
-    
-    
+    this._updateViewLike()
   }
+
+  _setLikeCat = () => {
+    this._data.favourite = !this._data.favourite;
+    this._updateViewLike();
+    this._handleLikeCat(this._data, this._cardInstance)
+  }
+
+
 
   _getTemplate() {
     return document.querySelector(this._selectorTemplate).content.children[0];
@@ -79,7 +94,8 @@ class CatsInfo{
       this._handleDeleteCat(this._cardInstance)
       );
 
-      this.buttonEdited.addEventListener('click', this._toggleContentEditable)
-      this.buttonSaved.addEventListener('click', this._savedDataCats)
+      this.buttonEdited.addEventListener('click', this._toggleContentEditable);
+      this.buttonSaved.addEventListener('click', this._savedDataCats);
+      this.buttonLiked.addEventListener('click', this._setLikeCat);
   }
 }

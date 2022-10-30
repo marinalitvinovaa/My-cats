@@ -19,6 +19,7 @@ popupImage.setEventListener();
 const catsInfoInstance = new CatsInfo(
   '#cats-info-template',
   handleCatEditCatInfo,
+  handleLike,
   handleCatDelete
 )
 
@@ -42,7 +43,7 @@ function serializeForm(elements){
 }
 
 function createCat(dataCat) {
-  const cardInstance = new Card(dataCat, '#card-template', handleCatTitle, handleCatImage);
+  const cardInstance = new Card(dataCat, '#card-template', handleCatTitle, handleCatImage, handleLike);
   const newCardElement = cardInstance.getElement();
   cardsContainer.append(newCardElement);
 }
@@ -137,6 +138,19 @@ function handleCatTitle(cardInstance) {
 
 function handleCatImage(dataCard) {
   popupImage.open(dataCard)
+}
+
+function handleLike(data, cardInstance){
+  const {id, favourite} = data;
+  api.updateCatById(id, {favourite})
+  .then(() => {
+    if (cardInstance) {
+      cardInstance.setData(data);
+      cardInstance.updateView();
+    }
+    updateLocalStorage(data, {type: 'EDIT_CAT'});
+    console.log('лайк изменен');
+  })
 }
 
 function handleCatDelete(cardInstance) {

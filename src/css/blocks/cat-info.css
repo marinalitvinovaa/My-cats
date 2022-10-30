@@ -26,9 +26,18 @@
 }
 
 .cat-info___about .card__like {
-  left: 70px;
-  top: 5px;
+  left: 160px;
+  top: 25px;
 }
+
+.card__like {
+  opacity: 0.6;
+}
+
+.card__like-active {
+  opacity: 1;
+}
+
 
 .cat-info__header {
   font-weight: 600;

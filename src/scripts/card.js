@@ -1,9 +1,10 @@
 class Card {
-  constructor(dataCat, selectorTemplate, handleCatTitle, handleCatImage) {
+  constructor(dataCat, selectorTemplate, handleCatTitle, handleCatImage, handleLikeCard) {
     this._data = dataCat;
     this._handleCatTitle = handleCatTitle;
     this._handleCatImage = handleCatImage;
     this._selectorTemplate = selectorTemplate;
+    this._handleLikeCard = handleLikeCard;
     
   }
 
@@ -13,10 +14,16 @@ class Card {
 
   _updateViewLike() {
     if (this._data.favourite) {
-      this.cardLike.classList.add('card__like_active')
+      this.cardLike.classList.add('card__like-active')
     } else {
-      this.cardLike.classList.remove('card__like_active')
+      this.cardLike.classList.remove('card__like-active')
     }
+  }
+  
+
+  _setLikeCat = () => {
+    this._data.favourite = !this._data.favourite;
+    this._handleLikeCard(this._data, this)
   }
 
   getElement(){
@@ -24,12 +31,9 @@ class Card {
     this.cardTitle = this.element.querySelector('.card__title');
     this.cardImage = this.element.querySelector('.card__photo');
     this.cardLike = this.element.querySelector('.card__like');
-    const cardRate = this.element.querySelector('.rate');
+    // const cardRate = this.element.querySelector('.rate');
 
-    if (!this._data.favourite) {
-      this.cardLike.remove()
-    }
-    this._updateViewLike()
+
 
     if (typeof this._data.id === 'undefined') {
         let test = this._data;
@@ -40,7 +44,6 @@ class Card {
     }
 
     this.updateView();
-
 
     this.setEventListener();
     return this.element
@@ -61,6 +64,7 @@ class Card {
   updateView(){
     this.cardTitle.textContent = this._data.name;
     this.cardImage.src = this._data.img_link || `${'https://coolsen.ru/wp-content/uploads/2021/10/141-20211027_200131.jpg'}`;
+    this._updateViewLike()
   }
 
   deleteView(){
@@ -71,6 +75,7 @@ class Card {
   setEventListener() {
     this.cardTitle.addEventListener('click', () => this._handleCatTitle(this))
     this.cardImage.addEventListener('click', () => this._handleCatImage(this._data))
+    this.cardLike.addEventListener('click', this._setLikeCat)
   }
 }
 
