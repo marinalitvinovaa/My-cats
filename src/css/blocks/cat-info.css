@@ -11,6 +11,10 @@
   margin: 0 auto;
 }
 
+
+.cat-info___about .card__like {
+  position: static;
+}
 .cat-info__photo {
   width: 172px;
   height: 172px;
