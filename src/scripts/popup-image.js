@@ -1,5 +1,3 @@
-
-
 class PopupImage extends Popup{
   constructor(className) {
     super(className)

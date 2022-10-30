@@ -11,6 +11,14 @@ class Card {
     return document.querySelector(this._selectorTemplate).content.querySelector('.card');
   }
 
+  _updateViewLike() {
+    if (this._data.favourite) {
+      this.cardLike.classList.add('card__like_active')
+    } else {
+      this.cardLike.classList.remove('card__like_active')
+    }
+  }
+
   getElement(){
     this.element = this._getTemplate().cloneNode(true);
     this.cardTitle = this.element.querySelector('.card__title');
@@ -21,6 +29,7 @@ class Card {
     if (!this._data.favourite) {
       this.cardLike.remove()
     }
+    this._updateViewLike()
 
     if (typeof this._data.id === 'undefined') {
         let test = this._data;
@@ -30,10 +39,7 @@ class Card {
         console.log(test);
     }
 
-
-
-    this.cardTitle.textContent = this._data.name;
-    this.cardImage.src = this._data.img_link || `${'https://coolsen.ru/wp-content/uploads/2021/10/141-20211027_200131.jpg'}`;
+    this.updateView();
 
 
     this.setEventListener();
@@ -45,11 +51,16 @@ class Card {
   }
 
   getId(){
-    return this._data._id;
+    return this._data.id;
   }
 
   setData(newData) {
     this._data = newData;
+  }
+
+  updateView(){
+    this.cardTitle.textContent = this._data.name;
+    this.cardImage.src = this._data.img_link || `${'https://coolsen.ru/wp-content/uploads/2021/10/141-20211027_200131.jpg'}`;
   }
 
   deleteView(){

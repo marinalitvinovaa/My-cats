@@ -18,6 +18,8 @@ popupImage.setEventListener();
 
 const catsInfoInstance = new CatsInfo(
   '#cats-info-template',
+  handleCatEditCatInfo,
+  handleCatDelete
 )
 
 const catsInfoElement = catsInfoInstance.getElement()
@@ -112,8 +114,12 @@ function updateLocalStorage(data, action) {
       return;
     case 'DELETE_CAT':
       const newStorage = oldStorage.filter(cat => cat.id !== data.id)
-      localStorage.setItem('cats', JSON.stringify(data))   
-      return;
+      localStorage.setItem('cats', JSON.stringify(data));
+      return;  
+    case 'EDIT_CAT':
+      const updateStorage = oldStorage.map(cat => cat.id === data.id ? data : cat);
+      localStorage.setItem('cats', JSON.stringify(updateStorage));
+      return
     default:
       break;
   }
@@ -133,7 +139,28 @@ function handleCatImage(dataCard) {
   popupImage.open(dataCard)
 }
 
-// function handleCatDelete(cardInstance)
+function handleCatDelete(cardInstance) {
+  api.deleteCatById(cardInstance.getId())
+    .then(() => {
+      cardInstance.deleteView();
+      updateLocalStorage(cardInstance.getData(), {type: 'DELETE_CAT'})
+      popupCatInfo.close()
+    })
+}
+
+
+function handleCatEditCatInfo(cardInstance, data){
+const {age, description, name, id} = data;
+
+api.updateCatById(id, {age, description, name})
+.then(() => {
+  cardInstance.setData(data)
+  cardInstance.updateView();
+
+  updateLocalStorage(data, {type: 'EDIT_CAT'})
+  popupCatInfo.close()
+})
+}
 
 btnOpenPopupForm.addEventListener('click', () => popupAddCat.open());
 btnOpenPopupLogin.addEventListener('click', () => popupLogin.open());
@@ -148,16 +175,3 @@ if(!isAuth){
   btnOpenPopupForm.classList.add('visually-hidden');
 }
 console.log(isAuth);
-
-// document.cookie = 'email=rinalitvinova95@yandex.ru;samesite=strict;max-age=360;';
-// document.cookie = 'name=Марина;samesite=strict;max-age=360;';
-
-
-// Cookies.set('password', '1234567', {expires: 7})
-// Cookies.remove('password')
-
-// console.log(Cookies.get('name'));
-
-// localStorage.setItem('name', JSON.stringify({name: 'Marina'}))
-// console.log(JSON.parse(localStorage.getItem('name')))
-// localStorage.clear()

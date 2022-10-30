@@ -1,9 +1,3 @@
-{/* 
-<img src="src/images/Star.svg" alt="" class="rate__icons"></img>
-<img src="src/images/star_half.svg" alt="" class="rate__icons">
-<img src="src/images/Stargrey.svg" alt="" class="rate__icons"> 
-*/}
-
 const MAX_RATE_CAT = 10;
 
 function generateRate(rate){

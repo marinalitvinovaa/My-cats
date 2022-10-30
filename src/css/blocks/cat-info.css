@@ -65,6 +65,7 @@
   background-color: transparent;
   border: none;
   gap: 10px;
+  cursor: pointer;
 }
 
 .cat-info__img {
@@ -95,6 +96,12 @@
   line-height: 18px;
   color: #A0A0A0;
 }
+
+.cat-info__edited_hidden {
+  display: none;
+}
+
+
 
 
 @media (max-width: 620px) {
