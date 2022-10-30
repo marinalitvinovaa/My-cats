@@ -35,6 +35,13 @@
   object-position: center;
   transform: translateY(-10px);
   margin-bottom: 5px;
+  cursor: pointer;
+  transition: all .2s ease 0s;
+}
+
+.card__photo:hover {
+  border: 2px solid #FE6751;
+  
 }
 
 .card__title {
@@ -43,6 +50,11 @@
   font-size: 24px;
   line-height: 29px;
   color: #0F1322;
+  transition: all .1s ease 0s;
+}
+
+.card__title:hover {
+  color: #FE6751;
 }
 
 .rate {

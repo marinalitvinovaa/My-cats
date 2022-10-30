@@ -26,9 +26,18 @@
       line-height: 19px;
       cursor: pointer;
       border-radius: 10px;
+      transition: all .5s ease 0s;;
+}
+
+.btn_login:hover {
+  background-color: #ff4a2e;
 }
 
 .buttons {
   display: flex;
   gap: 15px;
+}
+
+#add:hover {
+  opacity: 0.85;
 }
